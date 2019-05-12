@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      function namespace(nsp) {
+
+        const namespace = io('/namespace' + nsp);
+        namespace.on('news', function(data){
+            console.log(data.username + " // " + data.data);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick='namespace(1)'>namespace1</button>
+    <button onclick='namespace(2)'>namespace2</button>
+  </body>
+</html>
